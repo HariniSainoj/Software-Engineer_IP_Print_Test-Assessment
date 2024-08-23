@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-23T11:42:29.161249" rpa="false" schemaversion="5">
+<suite id="s1" name="Arm Technical Assessment" source="C:\Arm_Technical Assessment">
+<suite id="s1-s1" name="Tests" source="C:\Arm_Technical Assessment\tests">
+<suite id="s1-s1-s1" name="Ip Print Test" source="C:\Arm_Technical Assessment\tests\ip_print_test.robot">
+<test id="s1-s1-s1-t1" name="Test ip_print with input1.json" line="15">
+<kw name="Run Process" owner="Process">
+<msg time="2024-08-23T11:42:29.218320" level="INFO">Starting process:
+python ip_print.py datainput1.json</msg>
+<msg time="2024-08-23T11:42:29.231833" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-08-23T11:42:29.312372" level="INFO">Process completed.</msg>
+<msg time="2024-08-23T11:42:29.313438" level="INFO">${output} = &lt;result object with rc 0&gt;</msg>
+<var>${output}</var>
+<arg>python</arg>
+<arg>${SCRIPT}</arg>
+<arg>${INPUT1}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-08-23T11:42:29.217340" elapsed="0.096098"/>
+</kw>
+<kw name="Log File" owner="OperatingSystem">
+<msg time="2024-08-23T11:42:29.315418" level="INFO" html="true">Getting file '&lt;a href="file://C:\Arm_Technical Assessment\stdout.txt"&gt;C:\Arm_Technical Assessment\stdout.txt&lt;/a&gt;'.</msg>
+<msg time="2024-08-23T11:42:29.317469" level="INFO">
+Processing file: input1.json
+192.168.101.101
+192.168.101.70
+192.168.101.153
+
+Processing file: input2.json
+192.168.102.33 10.0.0.87
+192.168.103.74 10.0.0.77
+192.168.102.155 10.0.0.99
+</msg>
+<arg>stdout.txt</arg>
+<doc>Wrapper for `Get File` that also logs the returned file.</doc>
+<status status="PASS" start="2024-08-23T11:42:29.314373" elapsed="0.004033"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${output.stdout}</arg>
+<arg>192.168.101.101</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-23T11:42:29.319375" elapsed="0.000999"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${output.stdout}</arg>
+<arg>192.168.101.70</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-23T11:42:29.321476" elapsed="0.000938"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${output.stdout}</arg>
+<arg>192.168.101.153</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-23T11:42:29.323376" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-08-23T11:42:29.215331" elapsed="0.109135"/>
+</test>
+<status status="PASS" start="2024-08-23T11:42:29.196875" elapsed="0.131503"/>
+</suite>
+<status status="PASS" start="2024-08-23T11:42:29.193878" elapsed="0.138499"/>
+</suite>
+<status status="PASS" start="2024-08-23T11:42:29.167240" elapsed="0.168136"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Arm Technical Assessment">Arm Technical Assessment</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Arm Technical Assessment.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Ip Print Test">Arm Technical Assessment.Tests.Ip Print Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -44,4 +44,4 @@ def ip_addresses(input_file):
         sys.exit(3)  # Exit with error code for JSON decoding error
 
 if __name__ == "__main__":
-    main(["data\input1.json", "data\input2.json"])
+    main(["data/input1.json", "data/input2.json"])

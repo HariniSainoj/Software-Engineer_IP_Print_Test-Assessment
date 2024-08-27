@@ -58,4 +58,4 @@ def ip_addresses(input_file):
         sys.exit(error_code) #Exit with code 4 for other general errors
 
 if __name__ == "__main__":
-    main(["data/no_ipaddress.json"])
+    main(["data/input1.json", "data/input2.json"])

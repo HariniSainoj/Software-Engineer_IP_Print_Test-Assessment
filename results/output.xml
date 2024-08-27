@@ -1,64 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-23T11:42:29.161249" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-27T11:10:22.927220" rpa="false" schemaversion="5">
 <suite id="s1" name="Arm Technical Assessment" source="C:\Arm_Technical Assessment">
 <suite id="s1-s1" name="Tests" source="C:\Arm_Technical Assessment\tests">
 <suite id="s1-s1-s1" name="Ip Print Test" source="C:\Arm_Technical Assessment\tests\ip_print_test.robot">
-<test id="s1-s1-s1-t1" name="Test ip_print with input1.json" line="15">
+<test id="s1-s1-s1-t1" name="Test ip_print with no input files:" line="44">
 <kw name="Run Process" owner="Process">
-<msg time="2024-08-23T11:42:29.218320" level="INFO">Starting process:
-python ip_print.py datainput1.json</msg>
-<msg time="2024-08-23T11:42:29.231833" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-08-23T11:42:29.312372" level="INFO">Process completed.</msg>
-<msg time="2024-08-23T11:42:29.313438" level="INFO">${output} = &lt;result object with rc 0&gt;</msg>
+<msg time="2024-08-27T11:10:22.971780" level="INFO">Starting process:
+python ip_print.py</msg>
+<msg time="2024-08-27T11:10:22.977785" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-08-27T11:10:23.038629" level="INFO">Process completed.</msg>
+<msg time="2024-08-27T11:10:23.038629" level="INFO">${output} = &lt;result object with rc 4&gt;</msg>
 <var>${output}</var>
 <arg>python</arg>
 <arg>${SCRIPT}</arg>
-<arg>${INPUT1}</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-08-23T11:42:29.217340" elapsed="0.096098"/>
-</kw>
-<kw name="Log File" owner="OperatingSystem">
-<msg time="2024-08-23T11:42:29.315418" level="INFO" html="true">Getting file '&lt;a href="file://C:\Arm_Technical Assessment\stdout.txt"&gt;C:\Arm_Technical Assessment\stdout.txt&lt;/a&gt;'.</msg>
-<msg time="2024-08-23T11:42:29.317469" level="INFO">
-Processing file: input1.json
-192.168.101.101
-192.168.101.70
-192.168.101.153
-
-Processing file: input2.json
-192.168.102.33 10.0.0.87
-192.168.103.74 10.0.0.77
-192.168.102.155 10.0.0.99
-</msg>
-<arg>stdout.txt</arg>
-<doc>Wrapper for `Get File` that also logs the returned file.</doc>
-<status status="PASS" start="2024-08-23T11:42:29.314373" elapsed="0.004033"/>
+<status status="PASS" start="2024-08-27T11:10:22.971780" elapsed="0.066849"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${output.stdout}</arg>
-<arg>192.168.101.101</arg>
+<arg>Error: No input files provided.</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-08-23T11:42:29.319375" elapsed="0.000999"/>
+<status status="PASS" start="2024-08-27T11:10:23.039633" elapsed="0.000000"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-27T11:10:23.042042" level="INFO">Error: No input files provided.</msg>
 <arg>${output.stdout}</arg>
-<arg>192.168.101.70</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-08-23T11:42:29.321476" elapsed="0.000938"/>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-27T11:10:23.041035" elapsed="0.001007"/>
 </kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${output.stdout}</arg>
-<arg>192.168.101.153</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-08-23T11:42:29.323376" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2024-08-23T11:42:29.215331" elapsed="0.109135"/>
+<status status="PASS" start="2024-08-27T11:10:22.969864" elapsed="0.072178"/>
 </test>
-<status status="PASS" start="2024-08-23T11:42:29.196875" elapsed="0.131503"/>
+<status status="PASS" start="2024-08-27T11:10:22.958176" elapsed="0.086249"/>
 </suite>
-<status status="PASS" start="2024-08-23T11:42:29.193878" elapsed="0.138499"/>
+<status status="PASS" start="2024-08-27T11:10:22.955173" elapsed="0.091251"/>
 </suite>
-<status status="PASS" start="2024-08-23T11:42:29.167240" elapsed="0.168136"/>
+<status status="PASS" start="2024-08-27T11:10:22.932167" elapsed="0.115259"/>
 </suite>
 <statistics>
 <total>

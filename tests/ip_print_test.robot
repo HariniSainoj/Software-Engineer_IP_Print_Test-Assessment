@@ -40,3 +40,10 @@ Test ip_print with json decoding error
     ${output}    Run Process    python    ${SCRIPT}    ${INVALIDJSON}   
     Should Contain       ${output.stdout}    Error: Failed to decode JSON from the file 'invalid.json'.   
     Log    ${output.stdout} 
+
+Test ip_print with no input files:
+    ${output}    Run Process    python    ${SCRIPT}      
+    Should Contain       ${output.stdout}    Error: No input files provided.  
+    Log    ${output.stdout} 
+
+

@@ -4,14 +4,17 @@ import sys
 
 def main(input_files=None):
     if not input_files:
-        print(f"Error: No input files provided.")
-        sys.exit(5) #Exit with code 5 for incorrect usage 
+        error_code = 5
+        print(f"Error: No input files provided. Exiting with code {error_code}.")
+        sys.exit(error_code) #Exit with code 5 for incorrect usage 
 
     for input_file in input_files:
         print(f"\nProcessing file: {input_file}")
         ip_addresses(input_file)
+    
+    sys.exit(0) #Exit with code 0 for success output
 
-def ip_addresses(input_file):
+def ip_addresses(input_file): 
     try:
         with open(input_file,'r') as myjsonfile:
             data=json.load(myjsonfile)
@@ -33,26 +36,26 @@ def ip_addresses(input_file):
                 else:
                     print(private_ip)
                 found = True
-
-            if not found:
-                print(f"Error: No IP addresses found in the JSON file.")
-                sys.exit(1) #Exit with code 1 for no IP found
             
     except KeyError as e:
-        print(f"Error: The required key '{e.args[0]}' is missing in '{input_file}'.")
-        sys.exit(2) #Exit with code 2 for missing key
+        error_code = 1
+        print(f"Error: The required key '{e.args[0]}' is missing in the JSON file. Exiting with code {error_code}.")
+        sys.exit(error_code) #Exit with code 1 for missing key
 
     except FileNotFoundError:
-        print(f"Error: File '{input_file}' not found.")
-        sys.exit(3) #Exit with code 3 for file not found
+        error_code = 2
+        print(f"Error: File not found. Exiting with code {error_code}.")
+        sys.exit(error_code) #Exit with code 2 for file not found
 
     except json.JSONDecodeError:
-        print(f"Error: Failed to decode JSON from the file '{input_file}'.")
-        sys.exit(4) #Exit with code 4 for JSON decode error 
+        error_code = 3
+        print(f"Error: Failed to decode JSON from the file. Exiting with code {error_code}.")
+        sys.exit(error_code) #Exit with code 3 for JSON decode error 
 
     except Exception as e: 
-        print(f"An unexpected error occurred: {str(e)}")
-        sys.exit(6) #Exit with code 6 for other general errors
+        error_code = 4
+        print(f"An unexpected error occurred: {str(e)}. Exiting with code {error_code}.")
+        sys.exit(error_code) #Exit with code 4 for other general errors
 
 if __name__ == "__main__":
-    main(["data/input1.json", "data/input2.json"])
+    main(["data/no_ipaddress.json"])

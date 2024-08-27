@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-27T14:49:11.226020" rpa="false" schemaversion="5">
+<suite id="s1" name="Ip Print Test" source="c:\Arm_Technical Assessment\tests\ip_print_test.robot">
+<test id="s1-t1" name="Test ip_print with missing_key.json" line="37">
+<kw name="Run Process" owner="Process">
+<msg time="2024-08-27T14:49:11.285289" level="INFO">Starting process:
+python ip_print.py datamissing_key.json t</msg>
+<msg time="2024-08-27T14:49:11.301397" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-08-27T14:49:11.357179" level="INFO">Process completed.</msg>
+<msg time="2024-08-27T14:49:11.357179" level="INFO">${output} = &lt;result object with rc 2&gt;</msg>
+<var>${output}</var>
+<arg>python</arg>
+<arg>${SCRIPT}</arg>
+<arg>${MISSING_KEY}</arg>
+<arg>t</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-08-27T14:49:11.285289" elapsed="0.071890"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${output.stdout}</arg>
+<arg>Error: The required key 'vm_private_ips -&gt; value' is missing in the JSON file. Exiting with code 2.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-27T14:49:11.357179" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-27T14:49:11.363771" level="INFO">
+Processing file: data/no_ipaddress.json
+Error: The required key 'vm_private_ips -&gt; value' is missing in the JSON file. Exiting with code 2.</msg>
+<arg>${output.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-27T14:49:11.363069" elapsed="0.000702"/>
+</kw>
+<doc>Verify that ip_print handles missing_key error by processing missing_key.json file</doc>
+<status status="PASS" start="2024-08-27T14:49:11.285289" elapsed="0.078482"/>
+</test>
+<status status="PASS" start="2024-08-27T14:49:11.243041" elapsed="0.120730"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Ip Print Test">Ip Print Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

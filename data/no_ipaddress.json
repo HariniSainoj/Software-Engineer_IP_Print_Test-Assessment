@@ -1,7 +1,0 @@
-{
-    "vm_private_ips": {
-        "sensitive": false,
-        "type": "map"
-      }
-    }
-    

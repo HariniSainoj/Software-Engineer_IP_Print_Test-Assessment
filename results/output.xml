@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-27T11:10:22.927220" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-27T14:49:12.350737" rpa="false" schemaversion="5">
 <suite id="s1" name="Arm Technical Assessment" source="C:\Arm_Technical Assessment">
 <suite id="s1-s1" name="Tests" source="C:\Arm_Technical Assessment\tests">
 <suite id="s1-s1-s1" name="Ip Print Test" source="C:\Arm_Technical Assessment\tests\ip_print_test.robot">
-<test id="s1-s1-s1-t1" name="Test ip_print with no input files:" line="44">
+<test id="s1-s1-s1-t1" name="Test ip_print with missing_key.json" line="37">
 <kw name="Run Process" owner="Process">
-<msg time="2024-08-27T11:10:22.971780" level="INFO">Starting process:
-python ip_print.py</msg>
-<msg time="2024-08-27T11:10:22.977785" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-08-27T11:10:23.038629" level="INFO">Process completed.</msg>
-<msg time="2024-08-27T11:10:23.038629" level="INFO">${output} = &lt;result object with rc 4&gt;</msg>
+<msg time="2024-08-27T14:49:12.396283" level="INFO">Starting process:
+python ip_print.py datamissing_key.json t</msg>
+<msg time="2024-08-27T14:49:12.404184" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-08-27T14:49:12.459043" level="INFO">Process completed.</msg>
+<msg time="2024-08-27T14:49:12.459043" level="INFO">${output} = &lt;result object with rc 2&gt;</msg>
 <var>${output}</var>
 <arg>python</arg>
 <arg>${SCRIPT}</arg>
+<arg>${MISSING_KEY}</arg>
+<arg>t</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-08-27T11:10:22.971780" elapsed="0.066849"/>
+<status status="PASS" start="2024-08-27T14:49:12.394754" elapsed="0.064289"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${output.stdout}</arg>
-<arg>Error: No input files provided.</arg>
+<arg>Error: The required key 'vm_private_ips -&gt; value' is missing in the JSON file. Exiting with code 2.</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2024-08-27T11:10:23.039633" elapsed="0.000000"/>
+<status status="PASS" start="2024-08-27T14:49:12.459043" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-08-27T11:10:23.042042" level="INFO">Error: No input files provided.</msg>
+<msg time="2024-08-27T14:49:12.459043" level="INFO">
+Processing file: data/no_ipaddress.json
+Error: The required key 'vm_private_ips -&gt; value' is missing in the JSON file. Exiting with code 2.</msg>
 <arg>${output.stdout}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-08-27T11:10:23.041035" elapsed="0.001007"/>
+<status status="PASS" start="2024-08-27T14:49:12.459043" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-08-27T11:10:22.969864" elapsed="0.072178"/>
+<doc>Verify that ip_print handles missing_key error by processing missing_key.json file</doc>
+<status status="PASS" start="2024-08-27T14:49:12.392595" elapsed="0.066448"/>
 </test>
-<status status="PASS" start="2024-08-27T11:10:22.958176" elapsed="0.086249"/>
+<status status="PASS" start="2024-08-27T14:49:12.375535" elapsed="0.091502"/>
 </suite>
-<status status="PASS" start="2024-08-27T11:10:22.955173" elapsed="0.091251"/>
+<status status="PASS" start="2024-08-27T14:49:12.375535" elapsed="0.091502"/>
 </suite>
-<status status="PASS" start="2024-08-27T11:10:22.932167" elapsed="0.115259"/>
+<status status="PASS" start="2024-08-27T14:49:12.356645" elapsed="0.110392"/>
 </suite>
 <statistics>
 <total>
